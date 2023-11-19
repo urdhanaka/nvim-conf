@@ -45,7 +45,7 @@ require("lazy").setup({
   },
   {
     "tpope/vim-fugitive",
-    lazy = true,
+    lazy = false,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -124,4 +124,17 @@ require("lazy").setup({
     'RRethy/vim-illuminate',
     lazy = false,
   },
+  {
+    'windwp/nvim-ts-autotag',
+    lazy = false,
+  },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+  {
+    'folke/neodev.nvim',
+    opts = {},
+  }
 })

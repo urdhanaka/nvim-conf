@@ -4,7 +4,7 @@ lsp.preset("recommended")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
