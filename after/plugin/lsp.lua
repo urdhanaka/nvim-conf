@@ -1,10 +1,13 @@
+require("neodev").setup({})
+require("neoconf").setup({})
+
 local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-lsp.on_attach(function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -17,8 +20,6 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
-  lsp.buffer_autoformat()
 end)
 
 require('mason').setup({})
@@ -29,7 +30,15 @@ require('mason-lspconfig').setup({
 
     -- lua_ls
     lua_ls = function()
-      local lua_opts = lsp.nvim_lua_ls()
+      local lua_opts = lsp.nvim_lua_ls({
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = "Replace"
+            }
+          }
+        }
+      })
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
 
@@ -40,14 +49,7 @@ require('mason-lspconfig').setup({
 
     -- gopls
     gopls = function()
-      require('lspconfig').gopls.setup({
-        -- use gofumpt instead of gofmt
-        settings = {
-          gopls = {
-            gofumpt = true
-          }
-        }
-      })
+      require('lspconfig').gopls.setup({})
     end,
   }
 })

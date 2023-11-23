@@ -8,3 +8,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<leader>l", vim.cmd.bnext)
 vim.keymap.set("n", "<leader>h", vim.cmd.bprevious)
 vim.keymap.set("n", "<leader>d", vim.cmd.bd)
+
+-- git
+vim.keymap.set("n", "<leader>g", vim.cmd.Git)

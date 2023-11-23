@@ -49,7 +49,7 @@ require("lazy").setup({
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
-    lazy = true,
+    lazy = false,
   },
   -- LSP Thingies
   {
@@ -135,6 +135,17 @@ require("lazy").setup({
   },
   {
     'folke/neodev.nvim',
+    opts = {},
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  },
+  {
+    "mbbill/undotree",
+  },
+  {
+    "folke/neoconf.nvim",
     opts = {},
   }
 })
