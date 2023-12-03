@@ -1,5 +1,6 @@
 -- vim.opt.guicursor = ""
 
+vim.opt.filetype = "on"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -30,3 +31,4 @@ vim.opt.updatetime = 50
 vim.opt.showmode = false
 
 vim.opt.cursorline = true
+

@@ -6,8 +6,9 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip").filetype_extend("php", { "html" })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -76,3 +77,4 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
+

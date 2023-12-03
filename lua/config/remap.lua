@@ -11,3 +11,8 @@ vim.keymap.set("n", "<leader>d", vim.cmd.bd)
 
 -- git
 vim.keymap.set("n", "<leader>g", vim.cmd.Git)
+
+-- copy to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
