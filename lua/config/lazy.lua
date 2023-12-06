@@ -147,5 +147,9 @@ require("lazy").setup({
   {
     "folke/neoconf.nvim",
     opts = {},
+  },
+  {
+    "mfussenegger/nvim-lint",
   }
 })
+

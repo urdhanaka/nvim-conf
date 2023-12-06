@@ -50,7 +50,13 @@ require('mason-lspconfig').setup({
 
     -- gopls
     gopls = function()
-      require('lspconfig').gopls.setup({})
+      require('lspconfig').gopls.setup({
+        settings = {
+          gopls = {
+            staticcheck = true,
+          }
+        }
+      })
     end,
   }
 })
