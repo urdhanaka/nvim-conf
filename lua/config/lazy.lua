@@ -139,7 +139,21 @@ require("lazy").setup({
   },
   {
     'stevearc/conform.nvim',
-    opts = {},
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        "<leader>F",
+        function()
+          require("conform").format({async = true, lsp_fallback = true})
+        end,
+        mode = "",
+        desc = "Format current buffer"
+      },
+    },
+    init = function()
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
   },
   {
     "mbbill/undotree",
@@ -149,7 +163,20 @@ require("lazy").setup({
     opts = {},
   },
   {
-    "mfussenegger/nvim-lint",
-  }
+    "mfussenegger/nvim-lint"
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = true,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          auto_trigger = true,
+        }
+      })
+    end
+  },
 })
 

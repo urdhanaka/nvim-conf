@@ -5,8 +5,5 @@ require("conform").setup({
     html = { "prettierd" },
     python = { "black" }
   },
-  format_on_save = {
-    lsp_fallback = true,
-  }
 })
 
